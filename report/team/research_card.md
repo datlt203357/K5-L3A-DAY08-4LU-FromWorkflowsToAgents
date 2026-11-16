@@ -17,13 +17,13 @@ Phần này nối tiếp phần mini research ở buổi lý thuyết (slide 62�
 
 | Field | Hướng dẫn | Nhóm điền |
 | --- | --- | --- |
-| CÂU | R1 / R2 / R3 / R4 | |
-| SOURCE | Paper/blog, năm, URL, loại bằng chứng (benchmark, production report, blog kinh nghiệm) | |
-| CLAIM | Một kết luận gốc của nguồn. Không viết rộng hơn phạm vi paper | |
-| BOUNDARY | Model / dataset / setup giới hạn kết luận đó | |
-| HYPOTHESIS | Nếu đổi shape A→B (hoặc bật/tắt một thành phần), metric X sẽ đổi theo hướng nào, khoảng bao nhiêu | |
-| METHOD | Biến giữ cố định: model, tools, seed, corpus, giá, evaluator. Biến duy nhất được thay đổi: … | |
-| FAILURE / METRIC | Một lỗi dự kiến và cách đo nó: pass rate, pass^5, variance, cost/success, leak, bypass | |
+| CÂU | R1 / R2 / R3 / R4 | R2 |
+| SOURCE | Paper/blog, năm, URL, loại bằng chứng (benchmark, production report, blog kinh nghiệm) | MAST, NeurIPS 2025, https://arxiv.org/abs/2501.06830, benchmark & empirical failure taxonomy trên multi-agent systems |
+| CLAIM | Một kết luận gốc của nguồn. Không viết rộng hơn phạm vi paper | Multi-agent LLM systems thường thất bại do lỗi giao tiếp/đặc tả và thiếu cơ chế xác minh chéo độc lập (verification failure), dẫn đến việc tin cậy mù quáng dữ liệu từ người dùng thay vì ground-truth của hệ thống |
+| BOUNDARY | Model / dataset / setup giới hạn kết luận đó | Môi trường xử lý claim giải quyết tranh chấp (LogiX-VN) với MockLLM theo seed; dữ liệu đầu vào người dùng chứa claim không khớp với order database |
+| HYPOTHESIS | Nếu đổi shape A→B (hoặc bật/tắt một thành phần), metric X sẽ đổi theo hướng nào, khoảng bao nhiêu | Swarm (Shape D) do thiếu kiểm chứng chéo và tin ticket ở seed 55 sẽ bị fail ở T02, khiến pass rate giảm (~0.986) và pass^5 giảm xuống ~0.929; trong khi Workflow xác định (Shape A) sẽ đạt pass rate = 1.0 và pass^5 = 1.0 |
+| METHOD | Biến giữ cố định: model, tools, seed, corpus, giá, evaluator. Biến duy nhất được thay đổi: … | Cố định: MockLLM, tập public_claims.jsonl (14 claims), pricing.yaml, các seed 11, 22, 33, 44, 55. Biến duy nhất thay đổi: Kiến trúc xử lý từ Swarm (Shape D) sang Workflow (Shape A) |
+| FAILURE / METRIC | Một lỗi dự kiến và cách đo nó: pass rate, pass^5, variance, cost/success, leak, bypass | Lỗi verification failure (tin ticket 5 ngày trễ thay vì 2 ngày của order); đo lường qua metric pass rate, pass^5 và seed variance theo docs/metrics.md |
 
 ## Kết quả ablation
 
