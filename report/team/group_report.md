@@ -8,7 +8,7 @@ Tối đa 5 trang ngoài phụ lục. Số liệu lấy từ file trong `src/rep
 - Lớp: L3A
 - Repo: `https://github.com/datlt203357/K5-L3A-DAY08-4LU-FromWorkflowsToAgents`
 - Nhánh làm việc và nộp: `main`
-- Commit chốt (trùng `report/team/decision_adr.md`): `73782d3`
+- Commit chốt (trùng `report/team/decision_adr.md`): `490d2b2`
 - Thành viên: xem [TEAM.md](../../TEAM.md)
 
 ## 2. Mục tiêu và cách tiếp cận

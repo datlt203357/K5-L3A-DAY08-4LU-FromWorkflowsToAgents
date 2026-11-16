@@ -6,7 +6,7 @@
 - Lớp: L3A
 - Repo nhóm: `K5-L3A-DAY08-4LU-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
 - URL repo: https://github.com/datlt203357/K5-L3A-DAY08-4LU-FromWorkflowsToAgents
-- Nhánh làm việc: `main`; nhánh nộp và commit chốt: `main`.
+- Nhánh làm việc: `tan_branch`; nhánh nộp và commit chốt: `main`.
 
 ## Thành viên
 
