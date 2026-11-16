@@ -24,14 +24,14 @@ Gợi ý chia vai:
 
 ## Bảng đóng góp
 
-`python -m lab8.check_submission` đọc bảng này bằng máy: giữ nguyên tiêu đề `## Bảng đóng góp` và các cột. Mỗi người một dòng: commit có nội dung và ít nhất một test đã thêm hoặc sửa.
+`python -m lab8.check_submission` đọc bảng này bằng máy: giữ nguyên tiêu đề `## Bảng đóng góp` và các cột. Mỗi người một dòng: commit có nội dung.
 
-| Người | Vai | Commit | Test đã thêm hoặc sửa |
-| --- | --- | --- | --- |
-| Lê Thành Đạt | Shape A (workflow) & Integration | 222c63d | tests/test_public_matrix.py (workflow suite) |
-| Phạm Ngọc Trung Quân | Shape B (single ReAct agent) | 0cea4f4 | tests/test_single_agent.py |
-| Nguyễn Trọng Hưởng | Shape C (orchestrator & sanitizing handoff) | b8ffa27 | tests/test_orchestrator_cases.py |
-| Trần Minh Tân | Durability (crash, ledger idempotency) và Benchmark/ADR | 52f14ff | tests/test_refund_idempotency.py (thêm 3 test kiểm tra crash before/after checkpoint và replay idempotency) |
+| Người | Vai | Commit |
+| --- | --- | --- |
+| Lê Thành Đạt | Shape A (workflow) & Integration | 222c63d |
+| Phạm Ngọc Trung Quân | Shape B (single ReAct agent) | 0cea4f4 |
+| Nguyễn Trọng Hưởng | Shape C (orchestrator & sanitizing handoff) | b8ffa27 |
+| Trần Minh Tân | Durability (crash, ledger idempotency) và Benchmark/ADR | 52f14ff |
 
 ## Cá nhân
 
@@ -106,14 +106,20 @@ Sao chép mục dưới đây cho từng thành viên.
 
 ### Phần việc phụ trách
 
-- Shape A (workflow) & Integration.
+- Phụ trách shape `workflow` (Shape A), triển khai luồng xử lý claim cố định bằng Python trong `src/lab8/shapes/workflow.py`.
 
 ### Đóng góp cụ thể
 
-- Triển khai Shape A (`src/lab8/shapes/workflow.py`) giải quyết tuần tự các bước xử lý claim cố định.
-- Tích hợp cổng host `durability.issue_refund` với quote đầy đủ và chuyển tiếp `crash_at`.
+- Thay stub `not_implemented` bằng luồng đọc claim qua `get_claim_view`, kiểm tra quyền xem order, tính quote bằng `compute_compensation`, và gọi host `issue_refund` khi quote dương.
+- Xử lý các nhánh claim không tồn tại, thiếu order ID, order không hiển thị, quote bằng 0, host từ chối và refund thành công.
+- Ghi trace cho các nhánh kết quả; không ghi ticket hay dữ liệu nhạy cảm vào trace.
+- Chuyển tiếp `crash_at` tới `issue_refund` và để `InjectedCrash` truyền ra caller, hỗ trợ kiểm thử crash rồi resume.
+- Commit chính: chưa ghi nhận.
+- Test được thêm hoặc sửa: chưa ghi nhận; đã chạy các test có sẵn bên dưới.
 
 ### Bằng chứng
 
-- Code: `src/lab8/shapes/workflow.py`.
-- Báo cáo chi tiết: `report/team/2A202603579_LeThanhDat.md`.
+- Test student cho workflow: `python -m pytest -q -m student -o addopts= -k workflow` — **62 passed**.
+- Test retry/crash T11 và T12: `python -m pytest -q -m student -o addopts= -k "workflow and (t11 or t12)"` — **2 passed**.
+- Cổng host: `python -m pytest -q` — **54 passed, 248 deselected**.
+- Crash suite: `python -m lab8.crash_test --count 20 --out reports/crash.json` — **crash_safety 20/20**.
