@@ -12,7 +12,7 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Lê Thành Đạt | 203357 | dat.ltforwork@gmail.com | [datlt203357](https://github.com/datlt203357) | Shape A (workflow) & Integration |
+|   1 | Lê Thành Đạt | 2A202603579 | dat.ltforwork@gmail.com | [datlt203357](https://github.com/datlt203357) | Shape A (workflow) & Integration |
 |   2 | Phạm Ngọc Trung Quân | 2A202603626 | trungquana123@gmail.com | [jadenphm29](https://github.com/jadenphm29) | Shape B (single ReAct agent) |
 |   3 | Nguyễn Trọng Hưởng | 2A202603607 | nguyentronghuong05@gmail.com | [trongjhuongwr](https://github.com/trongjhuongwr) | Shape C (orchestrator & sanitizing handoff) |
 |   4 | Trần Minh Tân | 2A202603688 | minhtantran.contact@gmail.com | [minhtantran99](https://github.com/minhtantran99) | Durability (crash, ledger idempotency) và Benchmark/ADR |
@@ -102,7 +102,7 @@ Sao chép mục dưới đây cho từng thành viên.
 - Test student ma trận: `pytest -q -m student -k orchestrator` (62/62 passed).
 - Báo cáo chi tiết: `report/team/202603607_NguyenTrongHuong.md`.
 
-## 203357_LeThanhDat
+## 2A202603579_LeThanhDat
 
 ### Phần việc phụ trách
 
@@ -116,4 +116,4 @@ Sao chép mục dưới đây cho từng thành viên.
 ### Bằng chứng
 
 - Code: `src/lab8/shapes/workflow.py`.
-- Báo cáo chi tiết: `report/team/203357_LeThanhDat.md`.
+- Báo cáo chi tiết: `report/team/2A202603579_LeThanhDat.md`.
