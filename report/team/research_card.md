@@ -27,9 +27,9 @@ Phần này nối tiếp phần mini research ở buổi lý thuyết (slide 62�
 
 ## Kết quả ablation
 
-- Lệnh đã chạy (copy nguyên văn):
-- Run id / file report:
-- Kết quả so với hypothesis (đúng / sai / không kết luận được), kèm số liệu:
+- Lệnh đã chạy (copy nguyên văn): `python -m lab8.benchmark --shapes workflow,single,orchestrator,swarm --cases data/public_claims.jsonl --seeds 11,22,33,44,55 --out reports/benchmark.json`
+- Run id / file report: `src/reports/benchmark.json` (70 trials mỗi shape, 14 claims x 5 seeds).
+- Kết quả so với hypothesis (đúng / sai / không kết luận được), kèm số liệu: **Đúng**. Swarm (Shape D) thất bại ở claim T02 (C-002) ở seed 55 do tin số ngày trễ ghi trong ticket (5 ngày) thay vì số ngày trễ trong order DB (2 ngày), vi phạm verification rule. Số liệu đo được: Swarm đạt pass rate = 0.986, pass^5 = 0.929, variance = 0.000816, cost/success = 49.57 VND. Ngược lại, Workflow xác định (Shape A) đạt tuyệt đối pass rate = 1.000, pass^5 = 1.000, variance = 0.000000, cost/success = 28.79 VND.
 - Giới hạn: MockLLM không phải model sản xuất, latency là `unavailable`.
 
 Muốn đi xa hơn một ablation để lấy điểm cộng thì xem [docs/bonus_topics.md](../../docs/bonus_topics.md).
