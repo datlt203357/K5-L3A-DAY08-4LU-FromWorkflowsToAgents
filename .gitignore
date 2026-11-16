@@ -9,6 +9,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .DS_Store
+.idea/
 
 # Lab 8 runtime output. Code lives in src/ and every command runs from src/.
 *.sqlite
