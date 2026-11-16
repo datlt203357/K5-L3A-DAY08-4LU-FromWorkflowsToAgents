@@ -12,7 +12,7 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Phạm Ngọc Trung Quân       | 2A202603626     | trungquana123@gmail.com      | https://github.com/jadenphm29       | Shape B (single ReAct agent) |
-|   2 |        |      |       |        |         |
+|   2 | Nguyễn Trọng Hưởng         | 202603607       | nguyentronghuong05@gmail.com | https://github.com/trongjhuongwr    | Shape C (orchestrator) |
 
 Gợi ý chia vai:
 
@@ -26,6 +26,7 @@ Gợi ý chia vai:
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
 | Phạm Ngọc Trung Quân | Shape B (single ReAct agent) | quan-branch | tests/test_single_agent.py |
+| Nguyễn Trọng Hưởng | Shape C (orchestrator) | feat/shape-orchestrator | tests/test_orchestrator_cases.py |
 
 ## Cá nhân
 
@@ -39,19 +40,25 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Sao chép mục dưới đây cho từng thành viên.
 
-## MSSV_HoTen
+## 202603607_Nguyễn Trọng Hưởng
 
 ### Phần việc phụ trách
 
--
+- Shape C (orchestrator + read-only investigators) tại `src/lab8/shapes/orchestrator.py`.
 
 ### Đóng góp cụ thể
 
--
+- Hiện thực hóa kiến trúc điều phối Orchestrator tách biệt: điều phối viên cấp cao lập kế hoạch, đóng gói `make_handoff` an toàn (chỉ chứa các read tools: `lookup_order`, `lookup_policy`, `compute_compensation`).
+- Đảm bảo cơ chế cách ly tuyệt đối: điều tra viên con không thể truy cập tool ghi tiền, trace không chứa secret/PII từ ticket.
+- Gắn cổng an toàn với `durability.issue_refund` và chuyển tiếp `crash_at` không bắt nuốt ngoại lệ `InjectedCrash`.
+- Viết bộ test tác giả `src/tests/test_orchestrator_cases.py` (3 test cases kiểm thử cô lập handoff, khấu trừ trần đơn hàng và chặn sai principal_id).
 
 ### Bằng chứng
 
--
+- Code: `src/lab8/shapes/orchestrator.py`.
+- Test tác giả: `src/tests/test_orchestrator_cases.py` (3/3 passed).
+- Test student ma trận: `pytest -q -m student -k orchestrator` (62/62 passed).
+- Báo cáo chi tiết: `report/team/202603607_NguyenTrongHuong.md`.
 
 ## 2A202603626_Phạm Ngọc Trung Quân
 
