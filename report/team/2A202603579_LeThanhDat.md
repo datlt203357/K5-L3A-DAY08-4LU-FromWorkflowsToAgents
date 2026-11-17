@@ -18,7 +18,7 @@
 - Ghi trace cho các nhánh kết quả; không ghi ticket hay dữ liệu nhạy cảm vào trace.
 - Chuyển tiếp `crash_at` tới `issue_refund` và để `InjectedCrash` truyền ra caller, hỗ trợ kiểm thử crash rồi resume.
 - Commit chính: chưa ghi nhận.
-- Test được thêm hoặc sửa: chưa ghi nhận; đã chạy các test có sẵn bên dưới.
+- Test được thêm hoặc sửa: tests/test_public_matrix.py 
 
 ## 4. Bằng chứng
 
