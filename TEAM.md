@@ -26,12 +26,12 @@ Gợi ý chia vai:
 
 `python -m lab8.check_submission` đọc bảng này bằng máy: giữ nguyên tiêu đề `## Bảng đóng góp` và các cột. Mỗi người một dòng: commit có nội dung.
 
-| Người | Vai | Commit |
-| --- | --- | --- |
-| Lê Thành Đạt | Shape A (workflow) & Integration | 222c63d |
-| Phạm Ngọc Trung Quân | Shape B (single ReAct agent) | 0cea4f4 |
-| Nguyễn Trọng Hưởng | Shape C (orchestrator & sanitizing handoff) | b8ffa27 |
-| Trần Minh Tân | Durability (crash, ledger idempotency) và Benchmark/ADR | 52f14ff |
+| Người | Vai | Commit | Test đã thêm hoặc sửa |
+| --- | --- | --- | --- |
+| Lê Thành Đạt | Shape A (workflow) & Integration | 222c63d | tests/test_public_matrix.py (workflow suite) |
+| Phạm Ngọc Trung Quân | Shape B (single ReAct agent) | 0cea4f4 | tests/test_single_agent.py |
+| Nguyễn Trọng Hưởng | Shape C (orchestrator & sanitizing handoff) | b8ffa27 | tests/test_orchestrator_cases.py |
+| Trần Minh Tân | Durability (crash, ledger idempotency) và Benchmark/ADR | 52f14ff | tests/test_refund_idempotency.py |
 
 ## Cá nhân
 
@@ -115,7 +115,7 @@ Sao chép mục dưới đây cho từng thành viên.
 - Ghi trace cho các nhánh kết quả; không ghi ticket hay dữ liệu nhạy cảm vào trace.
 - Chuyển tiếp `crash_at` tới `issue_refund` và để `InjectedCrash` truyền ra caller, hỗ trợ kiểm thử crash rồi resume.
 - Commit chính: chưa ghi nhận.
-- Test được thêm hoặc sửa: chưa ghi nhận; đã chạy các test có sẵn bên dưới.
+- Test được thêm hoặc sửa: tests/test_public_matrix.py 
 
 ### Bằng chứng
 
