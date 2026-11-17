@@ -68,7 +68,7 @@ Nghiên cứu suy thoái Multi-Agent (R2 - MAST Taxonomy): xem [report/team/rese
 
 | Thành viên | MSSV | Vai trò chính | Đóng góp cốt lõi |
 |---|---|---|---|
-| Lê Thành Đạt | 203357 | Shape A & Integration | Triển khai Shape A Workflow tuần tự; cấu hình cổng gọi host bồi hoàn. |
+| Lê Thành Đạt | 2A202603579 | Shape A & Integration | Triển khai Shape A Workflow tuần tự; cấu hình cổng gọi host bồi hoàn. |
 | Phạm Ngọc Trung Quân | 2A202603626 | Shape B (Single Agent) | Triển khai Shape B ReAct (`max_steps=8`); viết bộ test `test_single_agent.py`. |
 | Nguyễn Trọng Hưởng | 2A202603607 | Shape C (Orchestrator) | Triển khai Shape C Orchestrator & Handoff sanitization; viết bộ test `test_orchestrator_cases.py`. |
 | Trần Minh Tân | 2A202603688 | Durability & Benchmark/ADR | Xây dựng test case Idempotency/Crash; chạy crash suite 20/20, Benchmark 4 shape và hoàn thiện ADR/Research Card. |
